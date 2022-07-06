@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}list{% endblock %}
+
+{% block main %}
+
+{% comment %} {% for attendance in attendances %}
+
+<p>{{attendance.user_name}}</p>
+
+{% endfor %} {% endcomment %}
+
+<style>
+.bor {
+    border: 1px solid black;
+}
+</style>
+
+  <div class="container">
+    <div class="row" style="height: 80%">
+      <div class="col-sm-3 bor" >
+        Level 1: .col-sm-3
+        <div >div</div>
+      </div>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-8 col-sm-6 bor">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">datetime</th>
+                    <th scope="col">user</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for attendance in attendances %}
+                  <tr>
+                    <th scope="row">{{ attendance.id }}</th>
+                    <td>{{ attendance.datetime }}</td>
+                    <td>{{ attendance.user_name }}</td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+          </div>
+          <div class="col-4 col-sm-6 bor">
+            Level 2: .col-4 .col-sm-6
+            <div style="height: 80%;overflow: scroll;border: 1px solid black;">
+            {% for _ in ''|center:100 %}
+                <p>繰り返しの要素</p>
+            {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
